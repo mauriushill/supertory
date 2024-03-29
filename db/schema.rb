@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_29_213012) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_29_213757) do
   create_table "facilities", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -36,6 +36,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_213012) do
     t.index ["folder_id"], name: "index_items_on_folder_id"
     t.index ["product_id"], name: "index_items_on_product_id"
     t.index ["purchase_id"], name: "index_items_on_purchase_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "image_url"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "purchases", force: :cascade do |t|
