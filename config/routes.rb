@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :purchases
+  resources :facilities
   resources :folders
   resources :items
   devise_for :users
