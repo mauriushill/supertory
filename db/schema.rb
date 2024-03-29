@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_29_210508) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_29_211916) do
+  create_table "folders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.boolean "status", default: false
     t.integer "facility_id", null: false
