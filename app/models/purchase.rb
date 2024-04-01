@@ -17,5 +17,6 @@
 #  user_id  (user_id => users.id)
 #
 class Purchase < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true
+  has_many  :items, class_name: "Item", foreign_key: "purchase_id"
 end

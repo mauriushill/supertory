@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class Facility < ApplicationRecord
+  has_many  :items, class_name: "Item", foreign_key: "facility_id", dependent: :nullify
 end

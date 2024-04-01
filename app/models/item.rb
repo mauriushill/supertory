@@ -26,8 +26,9 @@
 #  purchase_id  (purchase_id => purchases.id)
 #
 class Item < ApplicationRecord
-  belongs_to :facility
-  belongs_to :folder
-  belongs_to :purchase
-  belongs_to :product
+  has_many  :comments, class_name: "Comment", foreign_key: "item_id", dependent: :destroy
+  belongs_to :facility, required: true, class_name: "Facility", foreign_key: "facility_id", counter_cache: true
+  belongs_to :folder, required: true, class_name: "Folder", foreign_key: "folder_id", counter_cache: true  
+  belongs_to :product, required: true, class_name: "Product", foreign_key: "product_id", counter_cache: true 
+  belongs_to :purchase, required: true, class_name: "Purchase", foreign_key: "purchase_id"
 end

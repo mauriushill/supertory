@@ -10,4 +10,5 @@
 #  updated_at  :datetime         not null
 #
 class Product < ApplicationRecord
+  has_many  :items, class_name: "Item", foreign_key: "product_id", dependent: :destroy
 end
