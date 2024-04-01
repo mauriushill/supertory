@@ -31,4 +31,5 @@ class Item < ApplicationRecord
   belongs_to :folder, required: true, class_name: "Folder", foreign_key: "folder_id", counter_cache: true  
   belongs_to :product, required: true, class_name: "Product", foreign_key: "product_id", counter_cache: true 
   belongs_to :purchase, required: true, class_name: "Purchase", foreign_key: "purchase_id"
+  has_one  :user, through: :purchase, source: :user
 end

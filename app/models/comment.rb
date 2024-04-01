@@ -22,4 +22,6 @@
 class Comment < ApplicationRecord
   belongs_to :item, required: true, class_name: "Item", foreign_key: "item_id", counter_cache: true
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
+  has_one  :purchase, through: :item, source: :purchase
+  validates :body, presence: true
 end

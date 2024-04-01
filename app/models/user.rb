@@ -26,4 +26,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :nullify
    has_many  :purchases, class_name: "Purchase", foreign_key: "user_id", dependent: :nullify
-  end
+   has_many :items, through: :purchases, source: :items
+end
