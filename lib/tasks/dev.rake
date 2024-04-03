@@ -14,11 +14,11 @@ task({ :sample_data => :environment }) do
   p "Creating sample data."
   
   names = ["bob", "alice", "sandra", "steve", "gerry", "jenny"]
-  6.times do |count|
+  names.each do |name|
     user = User.new
-    user.first_name = names.capitalize.at(count)
+    user.first_name = name.capitalize
     user.last_name = Faker::Name.last_name
-    user.email = "#{user.first_name}@example.com"
+    user.email = "#{name}@example.com"
     user.password = "password"
     user.supervisor = Faker::Boolean.boolean
     user.save
@@ -27,7 +27,7 @@ task({ :sample_data => :environment }) do
   3.times do 
     facility = Facility.new
     facility.name = Faker::University.name
-    facility.location = Faker::Address.full_address
+    facility.address = Faker::Address.full_address
     facility.save
   end
 
