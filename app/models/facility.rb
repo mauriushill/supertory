@@ -9,4 +9,9 @@
 #  updated_at :datetime         not null
 #
 class Facility < ApplicationRecord
+  has_many  :items, class_name: "Item", foreign_key: "facility_id", dependent: :nullify
+  has_many :folders, through: :items, source: :folder
+  has_many :products, through: :items, source: :product
+  validates :address, presence: true, uniqueness: true
+  validates :name, presence: true
 end
