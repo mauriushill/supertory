@@ -25,6 +25,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
    has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :nullify
-   has_many  :purchases, class_name: "Purchase", foreign_key: "user_id", dependent: :nullify
+   has_many  :purchases, class_name: "Purchase", foreign_key: "user_id", dependent: :destroy, counter_cache: true
    has_many :items, through: :purchases, source: :items
 end
