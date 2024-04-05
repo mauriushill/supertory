@@ -34,6 +34,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_214029) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.boolean "status", default: false
+    t.integer "facility_id", null: false
+    t.integer "folder_id", null: false
+    t.integer "purchase_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_items_on_facility_id"
+    t.index ["folder_id"], name: "index_items_on_folder_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
+    t.index ["purchase_id"], name: "index_items_on_purchase_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "image_url"
     t.string "name"
@@ -67,5 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_214029) do
 
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "items", "facilities"
+  add_foreign_key "items", "folders"
+  add_foreign_key "items", "products"
+  add_foreign_key "items", "purchases"
   add_foreign_key "purchases", "users"
 end
