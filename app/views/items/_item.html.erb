@@ -1,27 +1,28 @@
 <div id="<%= dom_id item %>">
   <p>
+    <strong>Item Name:</strong>
+    <%= item.product.name %>
+  </p>
+  <p>
     <strong>Status:</strong>
     <%= item.status %>
   </p>
 
   <p>
     <strong>Facility:</strong>
-    <%= item.facility_id %>
+    <%= item.facility.name %>
   </p>
 
   <p>
     <strong>Folder:</strong>
-    <%= item.folder_id %>
+    <%= item.folder.name %>
   </p>
 
   <p>
     <strong>Purchase:</strong>
-    <%= item.purchase_id %>
+    <%= item.purchase.created_at %>
   </p>
 
-  <p>
-    <strong>Product:</strong>
-    <%= item.product_id %>
-  </p>
+ 
 
 </div>
