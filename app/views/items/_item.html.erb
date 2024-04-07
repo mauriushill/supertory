@@ -1,28 +1,24 @@
 <div id="<%= dom_id item %>">
-  <p>
-    <strong>Item Name:</strong>
-    <%= item.product.name %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= item.status %>
-  </p>
 
-  <p>
-    <strong>Facility:</strong>
-    <%= item.facility.name %>
-  </p>
-
-  <p>
-    <strong>Folder:</strong>
-    <%= item.folder.name %>
-  </p>
-
-  <p>
-    <strong>Purchase:</strong>
-    <%= item.purchase.created_at %>
-  </p>
-
- 
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Facility</th>
+      <th scope="col">Folder</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= item.product.name %></td>
+      <td><%= item.facility.name %></td>
+      <td><%= item.folder.name %></td>
+      <td><%= link_to "Show this item", item %>
+    </tr>
+  </tbody>
+</table>
 
 </div>
