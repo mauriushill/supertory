@@ -1,15 +1,14 @@
 <div id="<%= dom_id item %>">
 
-  <p>
+  <div class="item-details">
+    <p>
     <strong>Item name:</strong>
     <%= item.product.name %>
-  </p>
+    </p>
 
-    <p>
-    <strong>Facility:</strong>
-    <%= item.facility.name %>
-  </p>
-
-
-
+    <div>
+    <strong>Description:</strong>
+    <%= item.product.description %>
+    </div>
+  </div>
 </div>
