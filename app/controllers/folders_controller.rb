@@ -8,6 +8,8 @@ class FoldersController < ApplicationController
 
   # GET /folders/1 or /folders/1.json
   def show
+    @folder = Folder.find(params[:id])
+    @items = @folder.items
   end
 
   # GET /folders/new

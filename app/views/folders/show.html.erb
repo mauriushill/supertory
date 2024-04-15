@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
+<h1><%= @folder.name %></h1>
 
-<%= render @folder %>
 
 <div>
   <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
@@ -8,3 +8,25 @@
 
   <%= button_to "Destroy this folder", @folder, method: :delete %>
 </div>
+
+<h2>Items in this Folder</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <!-- Add more columns if needed -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.description %></td>
+        <!-- Add more cells for additional attributes -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
