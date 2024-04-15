@@ -21,8 +21,11 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @item = Item.find(params[:item_id])
-    @comments = @item.comments.new(comment_params)
+  
+    @comments = Comment.new(comment_params)
+    item_id = @comments.item_id
+    @item = Item.find_by(id: item_id)
+    
     if @comments.save
       redirect_to @item, notice: "Comment added successfully"
     else

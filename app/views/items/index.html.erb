@@ -18,8 +18,8 @@
         <tr>
           <td><%= item.id %></td>
           <td><%= link_to item.product.name, item %></td>
-          <td><%= link_to item.facility.name, facility_path(item) %></td>
-          <td><%= link_to item.folder.name, folder_path(item) %></td>
+          <td><%= link_to item.facility.name, facility_path(item.facility_id) %></td>
+          <td><%= link_to item.folder.name, folder_path(item.folder_id) %></td>
           <td><%= item.purchase.created_at.strftime("%D") %></td>
 
         </tr>
