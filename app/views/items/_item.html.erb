@@ -1,27 +1,14 @@
 <div id="<%= dom_id item %>">
-  <p>
-    <strong>Status:</strong>
-    <%= item.status %>
-  </p>
 
-  <p>
-    <strong>Facility:</strong>
-    <%= item.facility_id %>
-  </p>
+  <div class="item-details">
+    <p>
+    <strong>Item name:</strong>
+    <%= item.product.name %>
+    </p>
 
-  <p>
-    <strong>Folder:</strong>
-    <%= item.folder_id %>
-  </p>
-
-  <p>
-    <strong>Purchase:</strong>
-    <%= item.purchase_id %>
-  </p>
-
-  <p>
-    <strong>Product:</strong>
-    <%= item.product_id %>
-  </p>
-
+    <div>
+    <strong>Description:</strong>
+    <%= item.product.description %>
+    </div>
+  </div>
 </div>
