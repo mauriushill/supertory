@@ -2,6 +2,7 @@
 <h1><%= @folder.name %></h1>
 
 
+
 <div>
   <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
   <%= link_to "Back to folders", folders_path %>
@@ -9,12 +10,12 @@
   <%= button_to "Destroy this folder", @folder, method: :delete %>
 </div>
 
-<h2>Items in this Folder</h2>
+<h3><%= @folder.name %> Folder Items</h3>
 <table class="table">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Name</th>
+      <th>ID</th>
+      <th>Item Name</th>
       <th>Description</th>
       <!-- Add more columns if needed -->
     </tr>
@@ -23,7 +24,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.product.name %></td>
+        <td><%= link_to item.product.name, item %></td>
         <td><%= item.product.description %></td>
         <!-- Add more cells for additional attributes -->
       </tr>

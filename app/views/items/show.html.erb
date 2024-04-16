@@ -1,7 +1,21 @@
 <h1>Item Details</h1>
 <br>
 
-<%= render @item %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @item.product.name %></td>
+      <td><%= @item.product.description %></td>
+    </tr>
+  </tbody>
+</table>
+
 
 <div>
   <%= link_to "Back to items", items_path %>
