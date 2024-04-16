@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Folder</th>
       <th>Location</th>
     </tr>
   </thead>
@@ -13,7 +14,9 @@
     <tr>
       <td><%= @item.product.name %></td>
       <td><%= @item.product.description %></td>
+      <td><%= link_to @item.folder.name, folder_path(@item.folder) %></td>
       <td><%= link_to @item.facility.name, facility_path(@item.facility) %></td>
+
   </tbody>
 </table>
 
