@@ -6,13 +6,14 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Location</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @item.product.name %></td>
       <td><%= @item.product.description %></td>
-    </tr>
+      <td><%= link_to @item.facility.name, facility_path(@item.facility) %></td>
   </tbody>
 </table>
 
