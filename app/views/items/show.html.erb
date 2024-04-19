@@ -1,4 +1,4 @@
-<h1>Item Details</h1>
+<h1><%= @item.product.name %> Details</h1>
 <br>
 
 <table class="table">
@@ -14,48 +14,61 @@
     <tr>
       <td><%= @item.product.name %></td>
       <td><%= @item.product.description %></td>
-      <td><%= link_to @item.folder.name, folder_path(@item.folder) %></td>
-      <td><%= link_to @item.facility.name, facility_path(@item.facility) %></td>
+      <td><%= link_to folder_path(@item.folder), class: "custom-link" do %>
+          <%= image_tag asset_path('list.svg') %>
+          <%= @item.folder.name %>
+        <% end %>
+      </td>
+      <td><%= link_to facility_path(@item.facility), class: "custom-link" do %>
+          <%= image_tag asset_path('list.svg') %>
+          <%= @item.facility.name %>
+        <% end %>
+      </td>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-
-<div>
-  <%= link_to "Back to items", items_path %>
-  |
-  <%= link_to "Edit this item", edit_item_path(@item) %> 
-
-  <%= button_to "Destroy this item", @item, method: :delete %>
-</div>
-
-<h2>Comments</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @item.comments.each do |comment| %>
-      <tr>
-        <td><%= comment.user.first_name %></td>
-        <td><%= comment.body %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<!-- app/views/items/show.html.erb -->
-<h2>Add a Comment</h2>
-<%= form_with(model: [@items, @item.comments.build], local: true) do |form| %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.hidden_field :item_id, value: @item.id %>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="btn-group" role="group" style="padding-right: 10px;">
+    <%= link_to "Back to Items", items_path, class: "btn btn-secondary" %>
   </div>
-  <%= form.submit "Add Comment" %>
-<% end %>
+
+  <div class="btn-group" role="group" style="padding-right: 10px;">
+    <%= link_to "Edit", edit_item_path(@item), class: "btn btn-primary" %>
+  </div>
+
+  <div class="btn-group" role="group" style="padding-right: 10px;">
+    <%= button_to "Delete", @item, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", form_class: "d-inline" %>
+  </div>
+
+  <hr>
+
+  <h2>Comments</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @item.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.user.first_name %></td>
+          <td><%= comment.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- app/views/items/show.html.erb -->
+  <h2>Add a Comment</h2>
+  <%= form_with(model: [@items, @item.comments.build], local: true) do |form| %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :item_id, value: @item.id %>
+
+    <div class="form-group">
+      <%= form.label :body, class: "font-weight-bold" %>
+      <%= form.text_area :body, class: "form-control", rows: 4 %>
+    </div>
+    <%= form.submit "Add Comment", class: "btn btn-da" %>
+  <% end %>

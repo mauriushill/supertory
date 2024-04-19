@@ -1,32 +1,42 @@
-<h1>Create New Item</h1>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1 class="card-header mb-4 text-center">Create New Item</h1>
 
-<%= form_with model: @item, url: items_path, method: :post, html: { multipart: true } do |form| %>
-   <div class="field">
-    <%= form.label :purchase_id %>
-    <%= form.collection_select :purchase_id, Purchase.all, :id, :receipt, prompt: "Select or create a purchase" %>
-    <%= link_to "Create New Purchase", new_purchase_path %>
-  </div>
+      <%= form_with model: @item, url: items_path, class: "p-5", method: :post, multipart: true do |form| %>
+        <!-- Purchase selection -->
+        <div class="mb-3">
+          <%= form.label :purchase_id, class: "form-label" %>
+          <%= form.collection_select :purchase_id, Purchase.all, :id, :receipt, { prompt: "Select or create a purchase" }, class: "form-select" %>
+          <%= link_to "Create New Purchase", new_purchase_path, class: "btn btn-danger" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :product_id %>
-    <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select or create a product" %>
-    <%= link_to "Create New Product", new_product_path %>
-  </div>
+        <!-- Product selection -->
+        <div class="mb-3">
+          <%= form.label :product_id, class: "form-label" %>
+          <%= form.collection_select :product_id, Product.all, :id, :name, { prompt: "Select or create a product" }, class: "form-select" %>
+          <%= link_to "Create New Product", new_product_path, class: "btn btn-danger" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :facility_id %>
-    <%= form.collection_select :facility_id, Facility.all, :id, :name, prompt: "Select or create a facility" %>
-    <%= link_to "Create New Facility", new_facility_path %>
-  </div>
+        <!-- Facility selection -->
+        <div class="mb-3">
+          <%= form.label :facility_id, class: "form-label" %>
+          <%= form.collection_select :facility_id, Facility.all, :id, :name, { prompt: "Select or create a facility" }, class: "form-select" %>
+          <%= link_to "Create New Facility", new_facility_path, class: "btn btn-danger" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :folder_id %>
-    <%= form.collection_select :folder_id, Folder.all, :id, :name, prompt: "Select or create a folder" %>
-    <%= link_to "Create New Folder", new_folder_path %>
-  </div>
+        <!-- Folder selection -->
+        <div class="mb-3">
+          <%= form.label :folder_id, class: "form-label" %>
+          <%= form.collection_select :folder_id, Folder.all, :id, :name, { prompt: "Select or create a folder" }, class: "form-select" %>
+          <%= link_to "Create New Folder", new_folder_path, class: "btn btn-danger" %>
+        </div>
 
- 
-  <div class="actions">
-    <%= form.submit "Create Item" %>
+        <!-- Submit button -->
+        <div class="text-center">
+          <%= form.submit "Create Item", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,29 +1,49 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Items</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Item Name</th>
+              <th>Facility</th>
+              <th>Folder</th>
+              <th>Purchase Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td>
+                  <%= link_to item_path(item), class: "custom-link" do %>
+                    <%= image_tag asset_path('list.svg') %>
+                    <%= item.product.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to facility_path(item.facility_id), class: "custom-link" do %>
+                    <%= image_tag asset_path('list.svg') %>
+                    <%= item.facility.name %>
+                  <% end %>
+                </td>
 
-<h1>Items</h1>
+                <td><%= link_to folder_path(item.folder_id), class: "custom-link" do %>
+                    <%= image_tag asset_path('list.svg') %>
 
-
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Item name:</th>
-        <th>Facility:</th>
-        <th>Folder:</th>
-        <th>Purchase Date:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <td><%= item.id %></td>
-          <td><%= link_to item.product.name, item %></td>
-          <td><%= link_to item.facility.name, facility_path(item.facility_id) %></td>
-          <td><%= link_to item.folder.name, folder_path(item.folder_id) %></td>
-          <td><%= item.purchase.created_at.strftime("%D") %></td>
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+                    <%= item.folder.name %>
+                  <% end %>
+                </td>
+                <td><%= item.purchase.created_at.strftime("%D") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

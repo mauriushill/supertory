@@ -1,53 +1,44 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- .navbar {
-  width: 100%; /* Ensure the navbar spans the full width of the page */
-  background-color: #333; /* Background color of the navbar */
-  justify-content: end;
-  padding-right: 25px;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bebas Neue", sans-serif;
+  /* Other styles */
 }
 
-.nav {
-  list-style-type: none; /* Remove default list styles */
-  margin: 0;
-  padding: 0;
-  text-align: right; /* Align the list items to the right */
-  
+.ct-nav {
+  background-color: #DC1919;
 }
 
-.nav li {
-  display: inline-block; /* Display list items horizontally */
-  margin-left: 10px; /* Add spacing between list items */
-}
-
-.nav li link_to {
-  color: #fff; /* Text color of the navigation links */
-  text-decoration: none; /* Remove underline from links */
-  padding: 10px; /* Add padding around the links */
+.navbar-brand {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 42px;
 }
 
 body {
-  background-color: #C95E47; /* Set the desired background color */
-  font-family: 'Roboto', sans-serif; /* Set the desired font family */
+  font-family: "DM Sans", sans-serif;
 }
 
-table {
-  background-color: #F1948A ;
+.form-label {
+  font-weight: bold;
+  font-size: 20px;
+}
+#navbarSupportedContent {
+  font-weight: bold;
 }
 
-p {
-  
+/* Custom CSS to style links */
+.custom-link {
+  color: inherit; /* Inherit text color from parent */
+  text-decoration: none; /* Remove underline */
+}
+
+.custom-link:hover {
+  color: inherit; /* Change link color on hover if needed */
 }

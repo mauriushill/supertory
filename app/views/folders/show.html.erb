@@ -1,33 +1,50 @@
 <p style="color: green"><%= notice %></p>
 <h1><%= @folder.name %></h1>
 
-
-
-<div>
-  <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
-  <%= link_to "Back to folders", folders_path %>
-
-  <%= button_to "Destroy this folder", @folder, method: :delete %>
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= link_to "Edit", edit_folder_path(@folder), class: "btn btn-primary" %>
 </div>
 
-<h3><%= @folder.name %> Folder Items</h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Item Name</th>
-      <th>Description</th>
-      <!-- Add more columns if needed -->
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.product.name, item %></td>
-        <td><%= item.product.description %></td>
-        <!-- Add more cells for additional attributes -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= link_to "Back to Folders", folders_path, class: "btn btn-secondary" %>
+</div>
+
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= button_to "Delete", @folder, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", form_class: "d-inline" %>
+</div>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title"><%= @folder.name %> Folder Items</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped custom-table">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Item Name</th>
+              <th>Description</th>
+              <!-- Add more columns if needed -->
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= link_to item, class: "custom-link" do%>
+                    <%= image_tag asset_path('list.svg') %>
+                    <%= item.product.name %>
+                  <% end %>
+                </td>
+                <td><%= item.product.description %></td>
+                <!-- Add more cells for additional attributes -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

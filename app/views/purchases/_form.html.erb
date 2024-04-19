@@ -1,27 +1,35 @@
-<%= form_with(model: purchase) do |form| %>
-  <% if purchase.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1 class="card-title mb-4 text-center">Create New Purchase</h1>
+    
+      <%= form_with model: @purchase, url: purchases_path, class: "p-5", method: :post, multipart: true do |form| %>
+        <% if @purchase.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
-      <ul>
-        <% purchase.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% @purchase.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="mb-3">
+          <%= form.label :receipt, class: "form-label" %>
+          <%= form.text_field :receipt, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :user_id, class: "form-label" %>
+          <%= form.collection_select :user_id, User.all, :id, :first_name, { prompt: "Select user" }, class: "form-select" %>
+        </div>
+
+        <div class="text-center">
+          <%= form.submit "Create", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :receipt, style: "display: block" %>
-    <%= form.text_field :receipt %>
   </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
