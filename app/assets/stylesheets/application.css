@@ -42,3 +42,9 @@ body {
 .custom-link:hover {
   color: inherit; /* Change link color on hover if needed */
 }
+
+.dropdown-item.active {
+  background-color: #e23023c6; /* Blue background color */
+  /* color: #fff; /* White text color */
+  /* Add any other styles you want to apply */
+} */
