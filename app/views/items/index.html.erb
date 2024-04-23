@@ -12,8 +12,8 @@
               <th>Item Name</th>
               <th>Facility</th>
               <th>Folder</th>
-              <th>Purchase Date</th>
               <th>Status</th>
+              <th>Purchase Date</th>
             </tr>
           </thead>
           <tbody>
@@ -39,8 +39,15 @@
                     <%= item.folder.name %>
                   <% end %>
                 </td>
+                <td>
+                  <% if item.status == "Active" %>
+                  <%= image_tag asset_path('active.svg') %>
+                  <% else %>
+                  <%= image_tag asset_path('inactive.svg') %>
+                  <% end %>
+                  <%= item.status %>
+                </td>
                 <td><%= item.purchase.created_at.strftime("%D") %></td>
-                <td><%= item.status %></td>
               </tr>
             <% end %>
           </tbody>

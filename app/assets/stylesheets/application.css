@@ -48,3 +48,20 @@ body {
   /* color: #fff; /* White text color */
   /* Add any other styles you want to apply */
 } */
+
+.status-dot {
+  display: inline-block;
+  width: 10px; /* Adjust the size as needed */
+  height: 10px; /* Adjust the size as needed */
+  border-radius: 50%; /* To create a circular shape */
+}
+
+/* Style for the green status dot */
+.status-dot-green {
+  background-color: green; /* Or any other color you prefer */
+}
+
+/* Style for the red status dot */
+.status-dot-red {
+  background-color: red; /* Or any other color you prefer */
+}
