@@ -2,12 +2,18 @@
 
 <h2><%= @facility.name %> Item List</h2>
 
-<div>
-  <%= link_to "Edit this facility", edit_facility_path(@facility) %> |
-  <%= link_to "Back to facilities", facilities_path %>
-
-  <%= button_to "Destroy this facility", @facility, method: :delete %>
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= link_to "Edit", edit_facility_path(@facility), class: "btn btn-primary" %>
 </div>
+
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= link_to "Back to Facilities", facilities_path, class: "btn btn-secondary" %>
+</div>
+
+<div class="btn-group" role="group" style="padding-right: 10px;">
+  <%= button_to "Delete", @facility, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", form_class: "d-inline" %>
+</div>
+
 <div class="container mt-5">
   <div class="card">
     <div class="card-header"> <!-- Added bg-secondary class for grey header -->
