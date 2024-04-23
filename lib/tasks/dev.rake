@@ -94,7 +94,7 @@ task add_items: :environment do
     product_id: Product.all.sample.id,
     purchase_id: Purchase.all.sample.id,
     folder_id: Folder.all.sample.id,
-    status: Faker::Boolean.boolean
+    status: [0,1].sample
     )
   end
   puts "done"

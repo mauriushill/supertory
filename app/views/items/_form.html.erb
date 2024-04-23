@@ -25,6 +25,12 @@
     <%= form.label :product_id, "Product" %>
     <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
   </div>
+
+<div class="field">
+  <%= form.label :status, "Status" %>
+  <%= form.select :status, Item.statuses.keys.map { |status| [status, status] }, prompt: "Select a status" %>
+</div>
+
   <div>
     <%= form.submit %>
   </div>
