@@ -2,8 +2,6 @@
 
 <h1>Facilities</h1>
 
-
-
 <table class="table">
   <thead>
     <tr>
@@ -17,8 +15,14 @@
       <tr>
         <td><%= facility.name %></td>
         <td><%= facility.address %></td>
-        <td><%= link_to "Details", facility_path(facility) %></td>
-      </tr>
-    <% end %>
-  </tbody>
+        <td><%= link_to facility_path(facility), class: "custom-link" do %>
+            <%= image_tag asset_path('list.svg') %>
+            Details
+          <% end %>
+        </td>
+
+      </td>
+    </tr>
+  <% end %>
+</tbody>
 </table>

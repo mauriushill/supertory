@@ -8,23 +8,38 @@
 
   <%= button_to "Destroy this facility", @facility, method: :delete %>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Item Name</th>
-      <th>Description</th>
-      <!-- Add more columns if needed -->
-    </tr>
-  </thead>
-  <tbody>
-    <% @facility.items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= link_to item.product.name, item %></td>
-        <td><%= item.product.description %></td>
-        <!-- Add more cells for additional attributes -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header"> <!-- Added bg-secondary class for grey header -->
+      <h5 class="card-title">Facility Items</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Item Name</th>
+              <th>Description</th>
+              <!-- Add more columns if needed -->
+            </tr>
+          </thead>
+          <tbody>
+            <% @facility.items.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= link_to item, class: "custom-link" do %>
+                    <%= image_tag asset_path('list.svg') %>
+                    <%= item.product.name %>
+                  <% end %>
+                </td>
+                <td><%= item.product.description %></td>
+                <!-- Add more cells for additional attributes -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

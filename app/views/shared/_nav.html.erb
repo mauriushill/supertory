@@ -1,39 +1,57 @@
-<div class="navbar">
-  <ul class="nav nav-pills mb-4">
+<nav class="navbar navbar-expand-lg navbar-light ct-nav">
+  <!-- Container to keep content centered and responsive -->
+  <div class="container-fluid">
+    <!-- Brand logo or name -->
+    <a class="navbar-brand text-light" href="#">SUPERTORY</a>
+    <!-- Button for toggling navigation menu on small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <li class="nav-item">
-      <%= link_to "Home", root_path, class: "nav-link" %>
-    </li>
+    <!-- Navigation links and dropdown menu -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <!-- Navbar links aligned to the right -->
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <!-- Home link -->
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link text-light" %>
+        </li>
 
-    <% if user_signed_in? %>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Tools
-        </button>
-        <ul class="dropdown-menu">
-          <li><%= link_to "Create Item", new_item_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Items", items_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Folders", folders_path, class: "nav-link" %></li>
-          <li><%= link_to "Facilities", facilities_path, class: "nav-link" %></li>
+        <!-- Check if user is signed in -->
+        <% if user_signed_in? %>
+          <!-- Dropdown menu for tools -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tools
+            </a>
+            <!-- Dropdown menu items -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Create Item", new_item_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Items", items_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Folders", folders_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Facilities", facilities_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
 
-        </ul>
-      </div>
-
-      <li class="nav-item">
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
-      </li>
-
-    <% else %>
-
-      <li class="nav-item">
-        <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-      </li>
-    <% end %>
+          <!-- Link to edit user profile -->
+          <li class="nav-item">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link text-light" %>
+          </li>
+          <!-- Link to sign out -->
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-light" %>
+          </li>
+        <% else %>
+          <!-- Link to sign in -->
+          <li class="nav-item">
+            <%= link_to "Sign In", new_user_session_path, class: "nav-link text-light" %>
+          </li>
+          <!-- Link to sign up -->
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-light" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</ul>
+</nav>

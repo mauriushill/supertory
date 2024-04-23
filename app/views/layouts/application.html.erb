@@ -9,16 +9,18 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="application.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
     <%= render partial: "shared/nav" %>
 
     <div class="container">
-     <% if notice.present? %>
+      <% if notice.present? %>
         <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>
       <% end %>
-      
+
       <% if alert.present? %>
         <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
       <% end %>
