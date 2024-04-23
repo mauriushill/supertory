@@ -3,7 +3,7 @@
 # Table name: items
 #
 #  id          :integer          not null, primary key
-#  status      :boolean          default(FALSE)
+#  status      :integer          default("not_active")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  facility_id :integer          not null
@@ -26,6 +26,7 @@
 #  purchase_id  (purchase_id => purchases.id)
 #
 class Item < ApplicationRecord
+  enum status: { "Not Active": 0, "Active": 1 }
   has_many  :comments, class_name: "Comment", foreign_key: "item_id", dependent: :destroy
   belongs_to :facility, required: true, class_name: "Facility", foreign_key: "facility_id"
   belongs_to :folder, required: true, class_name: "Folder", foreign_key: "folder_id"

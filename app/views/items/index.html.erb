@@ -13,6 +13,7 @@
               <th>Facility</th>
               <th>Folder</th>
               <th>Purchase Date</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +40,7 @@
                   <% end %>
                 </td>
                 <td><%= item.purchase.created_at.strftime("%D") %></td>
+                <td><%= item.status %></td>
               </tr>
             <% end %>
           </tbody>
