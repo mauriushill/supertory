@@ -26,6 +26,7 @@
               <th>ID</th>
               <th>Item Name</th>
               <th>Description</th>
+              <th>Status</th>
               <!-- Add more columns if needed -->
             </tr>
           </thead>
@@ -39,12 +40,18 @@
                   <% end %>
                 </td>
                 <td><%= item.product.description %></td>
-                <!-- Add more cells for additional attributes -->
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+                <td>
+                  <% if item.status == "Active" %>
+                    <%= image_tag asset_path('active.svg') %>
+                  <% else %>
+                    <%= image_tag asset_path('inactive.svg') %>
+                  <% end %>
+                  <%= item.status %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
