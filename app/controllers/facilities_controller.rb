@@ -8,6 +8,8 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities/1 or /facilities/1.json
   def show
+    @facility = Facility.find(params[:id])
+    @items = @facility.items
   end
 
   # GET /facilities/new

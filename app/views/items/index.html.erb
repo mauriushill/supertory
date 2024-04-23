@@ -1,26 +1,25 @@
 
 <h1>Items</h1>
 
-<%= link_to "New item", new_item_path %>
 
 
   <table class="table">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Item name:</th>
         <th>Facility:</th>
         <th>Folder:</th>
-        <th>Comments:</th>
         <th>Purchase Date:</th>
       </tr>
     </thead>
     <tbody>
       <% @items.each do |item| %>
         <tr>
+          <td><%= item.id %></td>
           <td><%= link_to item.product.name, item %></td>
-          <td><%= link_to item.facility.name, facility_path(item) %></td>
-          <td><%= link_to item.folder.name, folder_path(item) %></td>
-          <td><%= link_to "Show item comments", comment_path(item) %></td>
+          <td><%= link_to item.facility.name, facility_path(item.facility_id) %></td>
+          <td><%= link_to item.folder.name, folder_path(item.folder_id) %></td>
           <td><%= item.purchase.created_at.strftime("%D") %></td>
 
         </tr>

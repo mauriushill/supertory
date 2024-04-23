@@ -2,13 +2,21 @@
 
 <h1>Folders</h1>
 
-<div id="folders">
-  <% @folders.each do |folder| %>
-    <%= render folder %>
-    <p>
-      <%= link_to "Show this folder", folder %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New folder", new_folder_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Folder Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @folders.each do |folder| %>
+      <tr>
+        <td><%= folder.name %></td>
+        <td><%= link_to "Details", folder_path(folder) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

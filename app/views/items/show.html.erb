@@ -1,7 +1,25 @@
 <h1>Item Details</h1>
 <br>
 
-<%= render @item %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Folder</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @item.product.name %></td>
+      <td><%= @item.product.description %></td>
+      <td><%= link_to @item.folder.name, folder_path(@item.folder) %></td>
+      <td><%= link_to @item.facility.name, facility_path(@item.facility) %></td>
+
+  </tbody>
+</table>
+
 
 <div>
   <%= link_to "Back to items", items_path %>
@@ -11,3 +29,33 @@
   <%= button_to "Destroy this item", @item, method: :delete %>
 </div>
 
+<h2>Comments</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.first_name %></td>
+        <td><%= comment.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- app/views/items/show.html.erb -->
+<h2>Add a Comment</h2>
+<%= form_with(model: [@items, @item.comments.build], local: true) do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :item_id, value: @item.id %>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+  <%= form.submit "Add Comment" %>
+<% end %>

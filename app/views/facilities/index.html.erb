@@ -2,13 +2,23 @@
 
 <h1>Facilities</h1>
 
-<div id="facilities">
-  <% @facilities.each do |facility| %>
-    <%= render facility %>
-    <p>
-      <%= link_to "Show this facility", facility %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New facility", new_facility_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @facilities.each do |facility| %>
+      <tr>
+        <td><%= facility.name %></td>
+        <td><%= facility.address %></td>
+        <td><%= link_to "Details", facility_path(facility) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

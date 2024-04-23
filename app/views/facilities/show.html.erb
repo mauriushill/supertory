@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @facility %>
+<h2><%= @facility.name %> Item List</h2>
 
 <div>
   <%= link_to "Edit this facility", edit_facility_path(@facility) %> |
@@ -8,3 +8,23 @@
 
   <%= button_to "Destroy this facility", @facility, method: :delete %>
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item Name</th>
+      <th>Description</th>
+      <!-- Add more columns if needed -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @facility.items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.product.name, item %></td>
+        <td><%= item.product.description %></td>
+        <!-- Add more cells for additional attributes -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
