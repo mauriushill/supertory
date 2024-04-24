@@ -3,7 +3,7 @@
 # Table name: items
 #
 #  id          :integer          not null, primary key
-#  status      :integer          default("not_active")
+#  status      :integer          default("Inactive")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  facility_id :integer          not null

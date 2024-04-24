@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #
 class Product < ApplicationRecord
+  has_one_attached :image
   has_many  :items, class_name: "Item", foreign_key: "product_id", dependent: :destroy
   has_many :facilities, through: :items, source: :facility
   has_many :purchases, through: :items, source: :purchase
