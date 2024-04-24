@@ -27,7 +27,7 @@ class FacilitiesController < ApplicationController
 
     respond_to do |format|
       if @facility.save
-        format.html { redirect_to facility_url(@facility), notice: "Facility was successfully created." }
+        format.html { redirect_to new_item_path, notice: "Facility was successfully created." }
         format.json { render :show, status: :created, location: @facility }
       else
         format.html { render :new, status: :unprocessable_entity }
