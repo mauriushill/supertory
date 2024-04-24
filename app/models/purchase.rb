@@ -17,6 +17,7 @@
 #  user_id  (user_id => users.id)
 #
 class Purchase < ApplicationRecord
+  has_one_attached :receipt
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   has_many  :items, class_name: "Item", foreign_key: "purchase_id", counter_cache: true
   has_many :folders, through: :items, source: :folder

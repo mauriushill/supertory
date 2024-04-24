@@ -75,6 +75,7 @@ end
 
 # AppDev Gems
 # ===========
+gem 'aws-sdk-s3', require: false
 gem "appdev_support"
 gem "awesome_print"
 gem "devise"       # to be removed

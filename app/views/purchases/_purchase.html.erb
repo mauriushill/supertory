@@ -1,7 +1,7 @@
 <div id="<%= dom_id purchase %>">
   <p>
     <strong>Receipt:</strong>
-    <%= purchase.receipt %>
+    <%= image_tag purchase.receipt if purchase.receipt.attached? %>
   </p>
 
   <p>
