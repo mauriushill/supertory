@@ -8,33 +8,45 @@
         <div class="mb-3">
           <%= form.label :purchase_id, class: "form-label" %>
           <%= form.collection_select :purchase_id, Purchase.all, :id, :receipt, { prompt: "Select or create a purchase" }, class: "form-select" %>
-          <%= link_to "Create New Purchase", new_purchase_path, class: "btn btn-danger" %>
+        </div>
+
+        <div>
+          <%= link_to "Create New Purchase", new_purchase_path, class: "btn btn-danger mb-2" %>
         </div>
 
         <!-- Product selection -->
         <div class="mb-3">
           <%= form.label :product_id, class: "form-label" %>
           <%= form.collection_select :product_id, Product.all, :id, :name, { prompt: "Select or create a product" }, class: "form-select" %>
-          <%= link_to "Create New Product", new_product_path, class: "btn btn-danger" %>
+        </div>
+
+        <div>
+          <%= link_to "Create New Product", new_product_path, class: "btn btn-danger mb-2" %>
         </div>
 
         <!-- Facility selection -->
         <div class="mb-3">
           <%= form.label :facility_id, class: "form-label" %>
           <%= form.collection_select :facility_id, Facility.all, :id, :name, { prompt: "Select or create a facility" }, class: "form-select" %>
-          <%= link_to "Create New Facility", new_facility_path, class: "btn btn-danger" %>
+        </div>
+
+        <div>
+          <%= link_to "Create New Facility", new_facility_path, class: "btn btn-danger mb-2" %>
         </div>
 
         <!-- Folder selection -->
         <div class="mb-3">
           <%= form.label :folder_id, class: "form-label" %>
           <%= form.collection_select :folder_id, Folder.all, :id, :name, { prompt: "Select or create a folder" }, class: "form-select" %>
-          <%= link_to "Create New Folder", new_folder_path, class: "btn btn-danger" %>
+        </div>
+
+        <div>
+          <%= link_to "Create New Folder", new_folder_path, class: "btn btn-danger mb-2" %>
         </div>
 
         <!-- Submit button -->
         <div class="text-center">
-          <%= form.submit "Create Item", class: "btn btn-danger" %>
+          <%= form.submit "Create Item", class: "btn btn-danger btn-lg" %>
         </div>
       <% end %>
     </div>
