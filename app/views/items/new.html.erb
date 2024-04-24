@@ -2,6 +2,8 @@
   <div class="card shadow">
     <div class="card-body">
       <h1 class="card-header mb-4 text-center">Create New Item</h1>
+      <p class="text-danger">All items must be attached to a folder, facility, product, & proof of purchase.</p>
+
 
       <%= form_with model: @item, url: items_path, class: "p-5", method: :post, multipart: true do |form| %>
         <!-- Purchase selection -->
