@@ -1,29 +1,35 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1 class="card-title mb-4 text-center">Create New Facility</h1>
 
-<%= form_with(model: facility) do |form| %>
-  <% if facility.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
+      <%= form_with(model: facility) do |form| %>
+        <% if facility.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
 
-      <ul>
-        <% facility.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% facility.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :address, class: "form-label" %>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+
+        <div class="text-center">
+          <%= form.submit "Create Facility", class: "btn btn-danger" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
- 
+</div>

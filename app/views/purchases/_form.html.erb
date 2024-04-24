@@ -21,13 +21,11 @@
           <%= form.text_field :receipt, class: "form-control" %>
         </div>
 
-        <div class="mb-3">
-          <%= form.label :user_id, class: "form-label" %>
-          <%= form.collection_select :user_id, User.all, :id, :first_name, { prompt: "Select user" }, class: "form-select" %>
-        </div>
+        <!-- Hidden user_id field with current user's ID -->
+        <%= form.hidden_field :user_id, value: current_user.id %>
 
         <div class="text-center">
-          <%= form.submit "Create", class: "btn btn-primary" %>
+          <%= form.submit "Create Purchase", class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

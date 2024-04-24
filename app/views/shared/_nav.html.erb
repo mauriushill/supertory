@@ -2,7 +2,7 @@
   <!-- Container to keep content centered and responsive -->
   <div class="container-fluid">
     <!-- Brand logo or name -->
-    <a class="navbar-brand text-light" href="#">SUPERTORY</a>
+    <%= link_to "SUPERTORY", root_path, class: "navbar-brand text-light" %>
     <!-- Button for toggling navigation menu on small screens -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,8 +26,8 @@
             </a>
             <!-- Dropdown menu items -->
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Create Item", new_item_path, class: "dropdown-item active" %></li>
-              <li><%= link_to "Items", items_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Add to Inventory", new_item_path, class: "dropdown-item active" %></li>
+              <li><%= link_to "Manage Inventory", items_path, class: "dropdown-item" %></li>
               <li><%= link_to "Folders", folders_path, class: "dropdown-item" %></li>
               <li><%= link_to "Facilities", facilities_path, class: "dropdown-item" %></li>
             </ul>
