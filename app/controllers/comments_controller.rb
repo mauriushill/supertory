@@ -32,6 +32,7 @@ class CommentsController < ApplicationController
       render "items/show"
     end
 
+    # Delete unused code
     # respond_to do |format|
     #   if @comment.save
     #     format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }

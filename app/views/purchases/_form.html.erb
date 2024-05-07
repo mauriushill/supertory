@@ -20,7 +20,7 @@
           <%= form.label :receipt, class: "form-label" %>
           <%= form.file_field :receipt %>
         </div>
-
+        <%# Security!: user_id should be in the controller %>
         <!-- Hidden user_id field with current user's ID -->
         <%= form.hidden_field :user_id, value: current_user.id %>
 

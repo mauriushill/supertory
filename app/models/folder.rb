@@ -8,7 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Folder < ApplicationRecord
-  has_many  :items, class_name: "Item", foreign_key: "folder_id", dependent: :destroy
+  # Keep consistent indentation, 1 space after association
+  has_many :items, class_name: "Item", foreign_key: "folder_id", dependent: :destroy
   has_many :purchases, through: :items, source: :purchase
   has_many :facilities, through: :items, source: :facility
   validates :name, presence: true
